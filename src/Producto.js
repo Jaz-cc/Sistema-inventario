@@ -1,22 +1,56 @@
-
-// Programa para representar un producto
-
-// Datos del producto
-let producto = {
-    codigo: "P001",
-    nombre: "Laptop HP",
-    precio: 12500.00,
-    existencia: 15
-};
+// Lista de productos
+let productos = [
+    {
+        codigo: "P001",
+        nombre: "Laptop HP",
+        precio: 12500,
+        existencia: 15
+    },
+    {
+        codigo: "P002",
+        nombre: "Mouse Logitech",
+        precio: 350,
+        existencia: 20
+    },
+    {
+        codigo: "P003",
+        nombre: "Teclado Mecánico",
+        precio: 850,
+        existencia: 10
+    },
+    {
+        codigo: "P004",
+        nombre: "Teclado Gamer",
+        precio: 850,
+        existencia: 10
+    }
+];
 
 // Función para mostrar la información del producto
-function mostrarProducto() {
+function mostrarProducto(producto) {
     console.log("===== INFORMACIÓN DEL PRODUCTO =====");
-    console.log("Código del producto: " + producto.codigo);
-    console.log("Nombre del producto: " + producto.nombre);
+    console.log("Código: " + producto.codigo);
+    console.log("Nombre: " + producto.nombre);
     console.log("Precio: $" + producto.precio);
-    console.log("Existencia en inventario: " + producto.existencia);
+    console.log("Existencia: " + producto.existencia);
 }
 
-// Llamada a la función
-mostrarProducto();
+// Función para buscar productos por código
+function buscarProducto(codigo) {
+    let productoEncontrado = productos.find(
+        producto => producto.codigo === codigo
+    );
+
+    if (productoEncontrado) {
+        console.log("Producto encontrado:");
+        mostrarProducto(productoEncontrado);
+    } else {
+        console.log("No se encontró ningún producto con el código: " + codigo);
+    }
+}
+
+// Mostrar todos los productos
+productos.forEach(producto => mostrarProducto(producto));
+
+// Buscar un producto
+buscarProducto("P002");
