@@ -23,7 +23,13 @@ let productos = [
         nombre: "Teclado Gamer",
         precio: 850,
         existencia: 10
-    }
+    },
+    {
+        codigo: "P005",
+        nombre: "Mouse Gamer",
+        precio: 350,
+        existencia: 20
+    },
 ];
 
 // Función para mostrar la información del producto
@@ -54,3 +60,10 @@ productos.forEach(producto => mostrarProducto(producto));
 
 // Buscar un producto
 buscarProducto("P002");
+
+
+function verificarProducto() {
+    console.log("Producto disponible");
+}
+
+verificarProducto();
