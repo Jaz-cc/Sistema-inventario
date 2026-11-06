@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: Verificar proyecto JavaScript
+    name: Verificar JavaScript
     runs-on: ubuntu-latest
 
     steps:
@@ -27,10 +27,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - name: Instalar dependencias
-        run: npm ci
+      - name: Verificar archivo Producto.js
+        run: |
+          test -f Producto.js
+          node --check Producto.js
 
-      - name: Verificar sintaxis JavaScript
-        run: node --check index.js
+      - name: Finalizar BUILD
+        run: echo "El archivo Producto.js no presenta errores de sintaxis."
