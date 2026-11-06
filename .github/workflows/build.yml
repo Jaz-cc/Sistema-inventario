@@ -16,19 +16,21 @@ on:
 
 jobs:
   build:
-    name: Construir proyecto
+    name: Verificar proyecto JavaScript
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Configurar Java
-        uses: actions/setup-java@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          distribution: temurin
-          java-version: '17'
-          cache: maven
+          node-version: 22
+          cache: npm
 
-      - name: Verificar y construir proyecto
-        run: mvn clean package
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar sintaxis JavaScript
+        run: node --check index.js
