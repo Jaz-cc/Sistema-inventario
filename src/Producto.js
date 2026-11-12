@@ -63,7 +63,8 @@ buscarProducto("P002");
 
 
 function verificarProducto() {
-    console.log("Producto disponible");
+    console.log("Buscando Producto");    
+    console.log("Producto encontrado");
 }
 
 verificarProducto();
